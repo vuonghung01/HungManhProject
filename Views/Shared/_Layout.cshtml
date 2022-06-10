@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HungManh Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="~/Content/ImageCenter.css" rel="stylesheet" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <div class="mainHeader--height" style="min-height: 102px;">
+
+        <header class="main-header mainHeader_tempcus">
+            <div class="header-top pad-header">
+                <div class="header-logo">
+                    <a href="https://badnotgood.com"><img src="https://file.hstatic.net/200000104195/file/z2025221042636_17109211f815f616bed70340e0f2330f_93651b09fa9b4fc6b2b927b0978a5b1d.jpg" alt="BADNOTGOOD"></a>
+                    <div class="h-login">
+                        <a href="/account/login">Login</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-middle pad-header">
+                <ul class="heaer-action">
+                    <li class="item-search">
+                        <form action="/search" class="searchform searchform-categoris ultimate-search">
+                            <div class="wpo-search-inner">
+                                <input type="hidden" name="type" value="product">
+                                <input required="" id="inputSearchAuto-mb" name="q" maxlength="40" autocomplete="off" class="searchinput input-search search-input" type="text" size="20" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                            </div>
+                            <button type="submit" class="btn-search btn" id="search-header-btn-mb" aria-label="Tìm kiếm">
+                                <img src="//theme.hstatic.net/200000104195/1000677830/14/search-icon.png?v=340" alt="Search">
+                            </button>
+                        </form>
+                    </li>
+                    <li class="item-cart header-action header-action_cart">
+                        <div class="header-action_text">
+                            <a class="header-action__link header-action-toggle" href="javascript:void(0)" id="site-cart-handle" aria-label="Giỏ hàng" title="Giỏ hàng"><img src="//theme.hstatic.net/200000104195/1000677830/14/cart-icon.png?v=340"></a>
+                            <div class="header-action_dropdown">
+                                <span class="box-triangle">
+                                    <svg viewBox="0 0 20 9" role="presentation">
+                                        <path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z" fill="#ffffff"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-menu pad-header">
+                <nav class="id-nav">
+                    <li class="active">
+                        <a href="/">HOME</a>
+                        <ul class="sub_menu">
+
+                            <li><a href="/pages/about-us">ABOUT US</a></li>
+
+                            <li><a href="/pages/play-worldtour-4-2">LOOKBOOK</a></li>
+
+                            <li><a href="/pages/chinh-sach-doi-tra">CHÍNH SÁCH ĐỔI TRẢ</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="/collections/shop">SHOP</a>
+                        <ul class="sub_menu">
+
+                            <li><a href="/collections/t-shirt">T-SHIRT</a></li>
+
+                            <li><a href="/collections/jacket">JACKET</a></li>
+
+                            <li><a href="/collections/hoodie-sweater">HOODIE &amp; SWEATER</a></li>
+
+                            <li><a href="/collections/mystery-box">MYSTERY BOX</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="/collections/shop">DROPS</a>
+                        <ul class="sub_menu">
+
+                            <li><a href="/collections/typo">TYPO</a></li>
+
+                            <li><a href="/collections/no-god-1">NO GOD</a></li>
+
+                            <li><a href="/collections/university-1">UNIVERSITY</a></li>
+
+                        </ul>
+                    </li>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <main class="mainContent-theme  main-index ">
+        <div class="main-body main-body-index">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="section-banner-home col-md-12">
+                        <a href="https://badnotgood.com/collections/shop">
+                            <img src="//theme.hstatic.net/200000104195/1000677830/14/home-banner-1.jpg?v=342" alt="Banner 1">
+                        </a>
+                    </div>
+                    <div class="section-banner-home col-md-12">
+                        <a href="https://badnotgood.com/collections/all">
+                            <img src="//theme.hstatic.net/200000104195/1000677830/14/home-banner-2.jpg?v=342" alt="Banner 2">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    @*<header>
+            <div class="container-fluid p-0">
+                <nav class="navbar navbar-expand-lg bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled">Disabled</a>
+                                </li>
+                            </ul>
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>*@
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
