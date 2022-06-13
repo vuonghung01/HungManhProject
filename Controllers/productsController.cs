@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace HungManhProject.Controllers
 {
-    public class productsController : Controller
+    public class ProductsController : Controller
     {
         // GET: products
         public ActionResult productsName()

@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace HungManhProject.Controllers
 {
-    public class collectionsController : Controller
+    public class CollectionsController : Controller
     {
         // GET: collections
-        public ActionResult all()
+        public ActionResult Shop()
         {
             return View();
         }

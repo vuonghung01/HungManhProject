@@ -6,10 +6,15 @@ using System.Web.Mvc;
 
 namespace HungManhProject.Controllers
 {
-    public class pagesController : Controller
+    public class PagesController : Controller
     {
         // GET: pages
-        public ActionResult aboutus()
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+
+        public ActionResult ReturnPolicy()
         {
             return View();
         }

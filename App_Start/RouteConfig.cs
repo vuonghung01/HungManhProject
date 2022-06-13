@@ -16,7 +16,25 @@ namespace HungManhProject
             routes.MapRoute(
                 name: "AboutUs",
                 url: "pages/about-us",
-                defaults: new { controller = "pages", action = "AboutUs", id = UrlParameter.Optional }
+                defaults: new { controller = "Pages", action = "AboutUs", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "ReturnPolicy",
+                url: "pages/chinh-sach-doi-tra",
+                defaults: new { controller = "Pages", action = "ReturnPolicy", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Shop",
+                url: "collections/shop",
+                defaults: new { controller = "Collections", action = "Shop", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "index",
+                url: "index",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
