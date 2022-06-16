@@ -1,7 +1,9 @@
-﻿
+﻿@model IEnumerable<HungManhProject.Models.Product>
+
 @{
-    ViewBag.Title = "SHOP - BADNOTGOOD";
+    ViewBag.Title = "SHOP – BADNOTGOOD";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
 
 <div class="main-body">
@@ -13,544 +15,76 @@
                         <div id="collection-body" class="wrap-collection-body clearfix">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="row filter-here">
-
+                                    @foreach (var item in Model)
+                                    {
                                     <!-- Product  -->
-                                    <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
-                                        <div class="product-block product-resize " style="margin: 7px;">
-                                            <div class="product-img ">
-                                                <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME" class="image-resize ratiobox">
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <img class="lazyload img-loop" data-sizes="auto"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             data-lowsrc="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <img class="img-loop img-hover lazyload"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                </a>
-                                                <div class="button-add hidden">
-                                                    <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
+                                            <div class="product-block product-resize " style="margin: 7px;">
+                                                <div class="product-img ">
+                                                    <a href="@Url.Action("productDetail", "products", new { id = item.product_id, slug = item.title.utf8Convert() })" title="@item.title" class="image-resize ratiobox">
+                                                        <picture>
+                                                            <source media="(max-width: 480px)"
+                                                                    data-srcset="@item.img"
+                                                                    srcset="@item.img" />
+                                                            <source media="(min-width: 481px) and (max-width: 767px)"
+                                                                    data-srcset="@item.img"
+                                                                    srcset="@item.img" />
+                                                            <source media="(min-width: 768px)"
+                                                                    data-srcset="@item.img"
+                                                                    srcset="@item.img" />
+                                                            <img class="lazyload img-loop" data-sizes="auto"
+                                                                 data-src="@item.img"
+                                                                 data-lowsrc="@item.img"
+                                                                 src="@item.img"
+                                                                 alt=" @item.title " />
+                                                        </picture>
+                                                        <picture>
+                                                            <source media="(max-width: 480px)"
+                                                                    data-srcset="@item.img_loop"
+                                                                    srcset="@item.img_loop">
+                                                            <source media="(min-width: 481px) and (max-width: 767px)"
+                                                                    data-srcset="@item.img_loop"
+                                                                    srcset="@item.img_loop">
+                                                            <source media="(min-width: 768px)"
+                                                                    data-srcset="@item.img_loop"
+                                                                    srcset="@item.img_loop">
+                                                            <img class="img-loop img-hover lazyload"
+                                                                 data-src="@item.img_loop"
+                                                                 src="@item.img_loop"
+                                                                 alt=" @item.title " />
+                                                        </picture>
+                                                    </a>
+                                                    <div class="button-add hidden">
+                                                        <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
+                                                    </div>
+                                                    <div class="pro-price-mb">
+                                                        <span class="pro-price">@string.Format(format,"{0:c0}", item.unit_price)</span>
+
+                                                    </div>
                                                 </div>
-                                                <div class="pro-price-mb">
-                                                    <span class="pro-price">99,000₫</span>
+                                                <div class="product-detail clearfix">
+                                                    <div class="box-pro-detail">
+                                                        <h3 class="pro-name">
+                                                            <a href="/products/than-chet-part-time" title="@item.title">
+                                                                @item.title
+                                                            </a>
+                                                        </h3>
 
-                                                </div>
-                                            </div>
-                                            <div class="product-detail clearfix">
-                                                <div class="box-pro-detail">
-                                                    <h3 class="pro-name">
-                                                        <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME">
-                                                            THẦN CHẾT PART-TIME
-                                                        </a>
-                                                    </h3>
+                                                        <div class="box-pro-prices">
+                                                            <p class="pro-price ">
+                                                                <span>@string.Format(format,"{0:c0}", item.unit_price)</span>
 
-                                                    <div class="box-pro-prices">
-                                                        <p class="pro-price ">
-                                                            <span>99,000₫</span>
-
-                                                        </p>
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
                                         </div>
-
-
-
-                                    </div>
                                     <!-- ./Product -->
-                                    <!-- Product  -->
-                                    <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
-                                        <div class="product-block product-resize " style="margin: 7px;">
-                                            <div class="product-img ">
-                                                <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME" class="image-resize ratiobox">
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <img class="lazyload img-loop" data-sizes="auto"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             data-lowsrc="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <img class="img-loop img-hover lazyload"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                </a>
-                                                <div class="button-add hidden">
-                                                    <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
-                                                </div>
-                                                <div class="pro-price-mb">
-                                                    <span class="pro-price">99,000₫</span>
-
-                                                </div>
-                                            </div>
-                                            <div class="product-detail clearfix">
-                                                <div class="box-pro-detail">
-                                                    <h3 class="pro-name">
-                                                        <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME">
-                                                            THẦN CHẾT PART-TIME
-                                                        </a>
-                                                    </h3>
-
-                                                    <div class="box-pro-prices">
-                                                        <p class="pro-price ">
-                                                            <span>99,000₫</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <!-- ./Product -->
-                                    <!-- Product  -->
-                                    <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
-                                        <div class="product-block product-resize " style="margin: 7px;">
-                                            <div class="product-img ">
-                                                <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME" class="image-resize ratiobox">
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <img class="lazyload img-loop" data-sizes="auto"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             data-lowsrc="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <img class="img-loop img-hover lazyload"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                </a>
-                                                <div class="button-add hidden">
-                                                    <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
-                                                </div>
-                                                <div class="pro-price-mb">
-                                                    <span class="pro-price">99,000₫</span>
-
-                                                </div>
-                                            </div>
-                                            <div class="product-detail clearfix">
-                                                <div class="box-pro-detail">
-                                                    <h3 class="pro-name">
-                                                        <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME">
-                                                            THẦN CHẾT PART-TIME
-                                                        </a>
-                                                    </h3>
-
-                                                    <div class="box-pro-prices">
-                                                        <p class="pro-price ">
-                                                            <span>99,000₫</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <!-- ./Product -->
-                                    <!-- Product  -->
-                                    <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
-                                        <div class="product-block product-resize " style="margin: 7px;">
-                                            <div class="product-img ">
-                                                <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME" class="image-resize ratiobox">
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <img class="lazyload img-loop" data-sizes="auto"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             data-lowsrc="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <img class="img-loop img-hover lazyload"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                </a>
-                                                <div class="button-add hidden">
-                                                    <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
-                                                </div>
-                                                <div class="pro-price-mb">
-                                                    <span class="pro-price">99,000₫</span>
-
-                                                </div>
-                                            </div>
-                                            <div class="product-detail clearfix">
-                                                <div class="box-pro-detail">
-                                                    <h3 class="pro-name">
-                                                        <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME">
-                                                            THẦN CHẾT PART-TIME
-                                                        </a>
-                                                    </h3>
-
-                                                    <div class="box-pro-prices">
-                                                        <p class="pro-price ">
-                                                            <span>99,000₫</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <!-- ./Product -->
-                                    <!-- Product  -->
-                                    <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
-                                        <div class="product-block product-resize " style="margin: 7px;">
-                                            <div class="product-img ">
-                                                <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME" class="image-resize ratiobox">
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <img class="lazyload img-loop" data-sizes="auto"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             data-lowsrc="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <img class="img-loop img-hover lazyload"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                </a>
-                                                <div class="button-add hidden">
-                                                    <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
-                                                </div>
-                                                <div class="pro-price-mb">
-                                                    <span class="pro-price">99,000₫</span>
-
-                                                </div>
-                                            </div>
-                                            <div class="product-detail clearfix">
-                                                <div class="box-pro-detail">
-                                                    <h3 class="pro-name">
-                                                        <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME">
-                                                            THẦN CHẾT PART-TIME
-                                                        </a>
-                                                    </h3>
-
-                                                    <div class="box-pro-prices">
-                                                        <p class="pro-price ">
-                                                            <span>99,000₫</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <!-- ./Product -->
-                                    <!-- Product  -->
-                                    <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
-                                        <div class="product-block product-resize " style="margin: 7px;">
-                                            <div class="product-img ">
-                                                <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME" class="image-resize ratiobox">
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <img class="lazyload img-loop" data-sizes="auto"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             data-lowsrc="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <img class="img-loop img-hover lazyload"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                </a>
-                                                <div class="button-add hidden">
-                                                    <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
-                                                </div>
-                                                <div class="pro-price-mb">
-                                                    <span class="pro-price">99,000₫</span>
-
-                                                </div>
-                                            </div>
-                                            <div class="product-detail clearfix">
-                                                <div class="box-pro-detail">
-                                                    <h3 class="pro-name">
-                                                        <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME">
-                                                            THẦN CHẾT PART-TIME
-                                                        </a>
-                                                    </h3>
-
-                                                    <div class="box-pro-prices">
-                                                        <p class="pro-price ">
-                                                            <span>99,000₫</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <!-- ./Product -->
-                                    <!-- Product  -->
-                                    <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
-                                        <div class="product-block product-resize " style="margin: 7px;">
-                                            <div class="product-img ">
-                                                <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME" class="image-resize ratiobox">
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <img class="lazyload img-loop" data-sizes="auto"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             data-lowsrc="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <img class="img-loop img-hover lazyload"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                </a>
-                                                <div class="button-add hidden">
-                                                    <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
-                                                </div>
-                                                <div class="pro-price-mb">
-                                                    <span class="pro-price">99,000₫</span>
-
-                                                </div>
-                                            </div>
-                                            <div class="product-detail clearfix">
-                                                <div class="box-pro-detail">
-                                                    <h3 class="pro-name">
-                                                        <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME">
-                                                            THẦN CHẾT PART-TIME
-                                                        </a>
-                                                    </h3>
-
-                                                    <div class="box-pro-prices">
-                                                        <p class="pro-price ">
-                                                            <span>99,000₫</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <!-- ./Product -->
-                                    <!-- Product  -->
-                                    <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
-                                        <div class="product-block product-resize " style="margin: 7px;">
-                                            <div class="product-img ">
-                                                <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME" class="image-resize ratiobox">
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg" />
-                                                        <img class="lazyload img-loop" data-sizes="auto"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             data-lowsrc="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__1791ab17083146d180a221fc337d5e05.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                    <picture>
-                                                        <source media="(max-width: 480px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 481px) and (max-width: 767px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <source media="(min-width: 768px)"
-                                                                data-srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                                srcset="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg">
-                                                        <img class="img-loop img-hover lazyload"
-                                                             data-src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             src="https://product.hstatic.net/200000104195/product/5__34c35f16c092410db0e71bf7de2e5f88.jpg"
-                                                             alt=" THẦN CHẾT PART-TIME " />
-                                                    </picture>
-                                                </a>
-                                                <div class="button-add hidden">
-                                                    <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
-                                                </div>
-                                                <div class="pro-price-mb">
-                                                    <span class="pro-price">99,000₫</span>
-
-                                                </div>
-                                            </div>
-                                            <div class="product-detail clearfix">
-                                                <div class="box-pro-detail">
-                                                    <h3 class="pro-name">
-                                                        <a href="/products/than-chet-part-time" title="THẦN CHẾT PART-TIME">
-                                                            THẦN CHẾT PART-TIME
-                                                        </a>
-                                                    </h3>
-
-                                                    <div class="box-pro-prices">
-                                                        <p class="pro-price ">
-                                                            <span>99,000₫</span>
-
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <!-- ./Product -->
-
+                                    }
                                 </div>
                             </div>
                         </div>
