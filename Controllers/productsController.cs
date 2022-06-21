@@ -1,4 +1,5 @@
 ﻿using HungManhProject.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -10,6 +11,19 @@ namespace HungManhProject.Controllers
         // GET: products
         public ActionResult productDetail(int id)
         {
+            //var variantList = new List<SelectListItem>
+            //{
+            //    new SelectListItem { Text = "Chọn size và màu sản phẩm"}
+            //};
+
+            //variantList.AddRange(data.Product_variants
+            //                        .Where( m => m.product_id == id)
+            //                        .Select(m => new SelectListItem
+            //                        {                                      
+            //                            Text = "Size: " + m.size + " – Màu: " + m.color + " (Hiện có: " + m.quantity + ")"
+            //                        }).Distinct());
+            //ViewBag.variantList = variantList;
+
             var detail = data.Products.Where(m => m.product_id == id).First();
             if (detail == null)
             {

@@ -41,7 +41,6 @@
       <Column Name="category_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="title" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="color" Type="System.String" DbType="NVarChar(45)" CanBeNull="true" />
       <Column Name="chatlieu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="kithuat" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="size" Type="System.String" DbType="NVarChar(45)" CanBeNull="true" />

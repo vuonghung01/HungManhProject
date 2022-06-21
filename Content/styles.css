@@ -1073,6 +1073,15 @@ button.btn-addtocart{
 	line-height: 22px;
 	width:100%;
 }
+button.btn-deleteupdateCart {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: none;
+	padding: 14px 35px;
+	line-height: 2px;
+	width: 50%;
+}
 button.btn-addtocart[disabled] {opacity: 0.8;}
 .product-description {margin: 20px 0;}
 .product-description .title-bl h2,
@@ -2081,7 +2090,7 @@ CART PAGE
 .layoutPage-cart .heading-page h1{font-size: 30px;margin: 0 0 10px;}
 .layoutPage-cart .heading-page .count-cart span{font-weight: 500;}
 .layoutPage-cart .cart-empty {font-size: 20px; margin: 30px 0 ;}
-table.table-cart {margin-bottom:30px;border-bottom: 1px solid #ededed;}
+table.table-cart {margin-bottom:0px;border-bottom: 1px solid #ededed;}
 table.table-cart thead{display:none;}
 table.table-cart tr td {padding: 20px 0;border-top: 1px solid #ededed;vertical-align: top;}
 table.table-cart tr:first-child td{border-top:0;}
@@ -2244,14 +2253,17 @@ ACCOUNT
 .userbox h2 {font-size:20px;margin: 0 0 20px; font-weight: 600;}
 .large_form {margin-bottom:30px;}
 .large_form.large_form-mr10{margin-bottom:10px;}
-.icon-field {display:none;}
-.userbox input[type=email],.userbox input[type=password],.userbox input[type=text] {
-	width: 100%;
+.icon-field {
+	display: none !important;
+}
+.userbox input[type=email],.userbox input[type=password],.userbox input[type=text],.userbox input[type=date] {
+	width: 70%;
 	height: 55px;
 	border: 1px solid transparent;
 	background: #ededed;
 	color: black;
 	padding: 0 20px;
+	margin-left: 75px;
 	font-weight: 500;
 	-webkit-appearance: none;
 }
@@ -2262,7 +2274,10 @@ ACCOUNT
 }
 .action_account_custommer .action_bottom,.action_account_custommer .req_pass{	display: inline-block;vertical-align: middle;}
 .action_account_custommer .req_pass{margin-left:20px;}
-.userbox .action_bottom {padding: 0;}
+.userbox .action_bottom {
+	padding: 0;
+	margin-left: 280px;
+}
 .userbox .action_bottom .btn {
 	display: inline-block;
 	border-radius: 0;
@@ -2274,7 +2289,7 @@ ACCOUNT
 	background: transparent;
 }
 .req_pass{ color:#959898; font-weight: 500;}
-.come-back{margin-top:35px; display: block;font-weight: 500;}
+.come-back{margin-top:35px; display: block;font-weight: 500;margin-left: 280px;color: black;}
 .come-back i{margin-right:20px}
 .userbox .errors a {color: red;}
 
@@ -3424,6 +3439,10 @@ RESPONSIVE
 }
 @media(min-width:768px){
 	table.table-cart tr td.remove {position:absolute;right: 15px;}
+	table.table-cart tr td.update {
+		position: absolute;
+		right: 50px;
+	}
 	.sidebarCart-sticky{position: -webkit-sticky;position: sticky;top:70px;}
 }
 @media(max-width:991px) and (min-width:768px){

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<HungManhProject.Models.Product>
 
 @{
-    ViewBag.Title = "SHOP";
+    ViewBag.Title = "JACKET";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
 }
@@ -17,7 +17,7 @@
                                 <div class="row filter-here">
                                     @foreach (var item in Model)
                                     {
-                                    <!-- Product  -->
+                                        <!-- Product  -->
                                         <div class="col-md-6 col-sm-6 col-xs-6 pro-loop col-4">
                                             <div class="product-block product-resize " style="margin: 7px;">
                                                 <div class="product-img ">
@@ -58,7 +58,7 @@
                                                         <button type="submit" title="Buy now" class="action" onclick="buy_now('1087585443')">Mua ngay<i class="fa fa-long-arrow-right"></i></button>
                                                     </div>
                                                     <div class="pro-price-mb">
-                                                        <span class="pro-price">@string.Format(format,"{0:c0}", item.unit_price)</span>
+                                                        <span class="pro-price">@string.Format(format, "{0:c0}", item.unit_price)</span>
 
                                                     </div>
                                                 </div>
@@ -72,7 +72,7 @@
 
                                                         <div class="box-pro-prices">
                                                             <p class="pro-price ">
-                                                                <span>@string.Format(format,"{0:c0}", item.unit_price)</span>
+                                                                <span>@string.Format(format, "{0:c0}", item.unit_price)</span>
 
                                                             </p>
                                                         </div>
@@ -83,7 +83,7 @@
 
 
                                         </div>
-                                    <!-- ./Product -->
+                                        <!-- ./Product -->
                                     }
                                 </div>
                             </div>

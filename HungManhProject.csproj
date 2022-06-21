@@ -128,14 +128,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CollectionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Extension\Extension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\dbBNG.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +199,12 @@
     <Content Include="Views\Pages\AboutUs.cshtml" />
     <Content Include="Views\Pages\ReturnPolicy.cshtml" />
     <Content Include="Views\Products\productDetail.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Collections\Jacket.cshtml" />
+    <Content Include="Views\Collections\TShirt.cshtml" />
+    <Content Include="Views\Collections\HoodieSweater.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

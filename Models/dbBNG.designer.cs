@@ -865,8 +865,6 @@ namespace HungManhProject.Models
 		
 		private string _description;
 		
-		private string _color;
-		
 		private string _chatlieu;
 		
 		private string _kithuat;
@@ -901,8 +899,6 @@ namespace HungManhProject.Models
     partial void OntitleChanged();
     partial void OndescriptionChanging(string value);
     partial void OndescriptionChanged();
-    partial void OncolorChanging(string value);
-    partial void OncolorChanged();
     partial void OnchatlieuChanging(string value);
     partial void OnchatlieuChanged();
     partial void OnkithuatChanging(string value);
@@ -1010,26 +1006,6 @@ namespace HungManhProject.Models
 					this._description = value;
 					this.SendPropertyChanged("description");
 					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_color", DbType="NVarChar(45)")]
-		public string color
-		{
-			get
-			{
-				return this._color;
-			}
-			set
-			{
-				if ((this._color != value))
-				{
-					this.OncolorChanging(value);
-					this.SendPropertyChanging();
-					this._color = value;
-					this.SendPropertyChanged("color");
-					this.OncolorChanged();
 				}
 			}
 		}

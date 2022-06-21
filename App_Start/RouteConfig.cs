@@ -28,6 +28,24 @@ namespace HungManhProject
             );
 
             routes.MapRoute(
+                name: "Jacket",
+                url: "collections/jacket",
+                defaults: new { controller = "Collections", action = "Jacket", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "TShirt",
+                url: "collections/t-shirt",
+                defaults: new { controller = "Collections", action = "TShirt", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "HoodieSweater",
+                url: "collections/hoodie-sweater",
+                defaults: new { controller = "Collections", action = "HoodieSweater", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "index",
                 url: "index",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
@@ -37,6 +55,12 @@ namespace HungManhProject
                 name: "detail",
                 url: "products/{id}/{slug}",
                 defaults: new { controller = "Products", action = "productDetail", id = UrlParameter.Optional , slug = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "cart",
+                url: "cart",
+                defaults: new { controller = "Cart", action = "Cart"}
             );
 
             routes.MapRoute(
